@@ -1,18 +1,15 @@
 {
   "name": "rs-auth",
   "version": "0.0.1",
-  "homepage": "https://github.com/RandomShapes/rs-auth",
+  "homepage": "https://github.com/RandomShapes/rsModal",
   "authors": [
     "Jamie Spittal <spittal@kerplunc.com>"
   ],
-  "description": "Easy to use Angular Authentication with user-roles, using webstorage.",
-  "main": "dist/rs-auth.min.js",
+  "description": "Easy to use Angular Modal system",
+  "main": "dist/rs-modal.min.js",
   "keywords": [
     "AnguarJs",
-    "Authentication",
-    "Auth",
-    "User",
-    "Role"
+    "Modal"
   ],
   "license": "MIT",
   "devDependencies": {
