@@ -1,3 +1,5 @@
 angular.module('rs-modal', [])
-    .provider('$rsModal', $rsModal)
+    .factory('$rsModal', $rsModal)
     .directive('rsModal', rsModal)
+    .controller('RsModalCtrl', RsModalCtrl)
+    .run(rsModalRun);

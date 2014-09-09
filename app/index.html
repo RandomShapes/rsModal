@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <title>rsModal</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="rs-modal.css">
 </head>
 <body>
     
-    <section class="container" ng-controller="RsModalCtrl as vm">
+    <section class="container" ng-controller="RsModalAppCtrl">
         <h1 class="jumbotron">rsModal, the best modal system that ever was and ever will be.</h1>
 
         <rs-modal></rs-modal>
 
-        <button ng-click="vm.show()" class="btn btn-primary">Show</button>
-        <button ng-click="vm.hide()" class="btn btn-primary">hide</button>
-        <label for="type">Type</label>
-        <select name="type" id="type" ng-model="vm.type">
-            <option value="success">Success</option>
-            <option value="info">Info</option>
-            <option value="warning">Warning</option>
-            <option value="danger">Danger</option>
-        </select>
+        <button ng-click="show()" class="btn btn-primary">Show</button>
+        <button ng-click="hide()" class="btn btn-primary">hide</button>
     </section>
 
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery.transit/jquery.transit.js"></script>
     <script src="rs-modal.js"></script>
     <script>
     (function() {
         angular
             .module('rsModalApp', ['rs-modal'])
-            .controller('RsModalCtrl', RsModalCtrl)
+            .controller('RsModalAppCtrl', RsModalAppCtrl)
 
 
-        function RsModalCtrl($rsModal) {
-            var vm = this;
+        function RsModalAppCtrl($rsModal, $templateCache, $scope) {
+            $scope.show = function () {
+                $rsModal.open('modalTest.html');
+            }
+
+            $templateCache.put('modalTest.html', "<h1>Modal Test</h1>");
+
         }
 
     })();

@@ -15,7 +15,7 @@ gulp.task('jshint', function () {
 gulp.task('concat', function() {
 	return gulp.src("app/angular/**/*.js")
 		.pipe($.sourcemaps.init())
-		.pipe($.concat('rs-flash.js').on('error', $.util.log))
+		.pipe($.concat('rs-modal.js').on('error', $.util.log))
 		.pipe($.ngAnnotate({
             add: true
         }).on('error', $.util.log))
@@ -25,9 +25,9 @@ gulp.task('concat', function() {
 });
 
 gulp.task('minify', function() {
-	return gulp.src("dist/rs-flash.js")
+	return gulp.src("dist/rs-modal.js")
 		.pipe($.uglify())
-		.pipe($.rename('rs-flash.min.js'))
+		.pipe($.rename('rs-modal.min.js'))
 		.pipe(gulp.dest('dist'))
 });
 

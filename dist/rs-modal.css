@@ -1,0 +1,32 @@
+rs-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    overflow: auto;
+}
+
+rs-modal.modal-show {
+    display: block;
+}
+
+rs-modal .modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding: 0 15px;
+    text-align: center;
+}
+
+rs-modal .modal-body {
+    display: inline-block;
+    opacity: 0;
+    top: 0;
+}

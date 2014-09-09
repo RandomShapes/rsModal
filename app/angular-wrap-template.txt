@@ -1,5 +1,5 @@
-(function(angular) { 
+(function(angular,$) { 
 
 <%= contents %> 
 
-})(angular);
+})(angular,$);
