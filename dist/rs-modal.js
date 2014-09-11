@@ -100,15 +100,15 @@ RsModalCtrl.$inject = ["$scope", "$rootScope", "$timeout", "MODAL_EVENTS"];
 function rsModal() {
 	return {
 		restrict: "E",
-		templateUrl: 'angular/rs-modal-template.html',
+		templateUrl: 'rs-modal-template.html',
 		controller: 'RsModalCtrl',
 		controllerAs: 'vm'
 	};
 }
-function rsModalRun($templateCache, $http) {
-    $http.get('angular/rs-modal-template.html', {cache:$templateCache});
+function rsModalRun($templateCache) {
+    $templateCache.put('rs-modal-template.html','<div class="modal-background"><div class="modal-body"><div class="alert {{vm.modalFlashType}}" ng-show="vm.modalFlash">{{vm.modalFlash}}</div><ng-include src="vm.template"></ng-include></div></div>');
 }
-rsModalRun.$inject = ["$templateCache", "$http"];
+rsModalRun.$inject = ["$templateCache"];
 function $rsModal($rootScope,$templateCache,MODAL_EVENTS) {
 	return {
 		open: open,
