@@ -21,15 +21,19 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 	//////////////////////////////////
 
 	//For dismissal of Modal
-	$(document).ready(function() {
-		$(document).on('click', function(event) {
+	function setRsModalListener() {
+		$(document).on('click.$rsModal.open', function(event) {
 		  if (!$(event.target).closest('.modal-body').length) {
 		    if(vm.isVisible) {
 		    	close();
 		    }
 		  }
 		});
-	});
+	}
+
+	function removeRsModalListener() {
+		$(document).off('click.$rsModal.open');
+	}
 
 	$rootScope.$on(MODAL_EVENTS.open, function(e, templateUrl, scopeObj, callback) {
 		vm.template = templateUrl;
@@ -72,6 +76,7 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 			vm.isVisible = true;
 		});
 
+		setRsModalListener();
 	}
 
 	function close() {
@@ -88,6 +93,8 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 
 		vm.isVisible = false;
 		vm.modalFlash = '';
+
+		removeRsModalListener();
 	}
 
 
