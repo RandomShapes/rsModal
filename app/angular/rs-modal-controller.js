@@ -5,6 +5,7 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 	vm.template = '';
 	vm.modalFlash = '';
 	vm.modalType = '';
+	vm.close = close;
 
 	//////////////////////////////////
 

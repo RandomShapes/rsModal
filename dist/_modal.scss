@@ -20,13 +20,18 @@ rs-modal {
 	}
 
 	.modal-body {
+		position: relative;
 		display: inline-block;
 		opacity: 0;
 		top: 0;
-	}
-
-	.modal {
-		background-color: #fff;
+		.close-button {
+			position: absolute;
+			width: 15px;
+			top:20px;
+			right: 20px;
+			z-index: 1;
+			cursor: pointer;
+		}
 	}
 
 	&.modal-show {
