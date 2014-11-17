@@ -36,8 +36,9 @@ rs-modal .modal-body {
 rs-modal .modal-body .close-button {
     position: absolute;
     width: 15px;
-    top:20px;
-    right: 20px;
+    top: 5px;
+    right: 5px;
     z-index: 1;
+    color: #fff;
     cursor: pointer;
 }
