@@ -29,6 +29,7 @@ rs-modal .modal-background {
 rs-modal .modal-body {
     position: relative;
     display: inline-block;
+    background-color: #fff;
     opacity: 0;
     top: 0;
 }
