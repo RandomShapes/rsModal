@@ -30,10 +30,12 @@
 
         function RsModalAppCtrl($rsModal, $templateCache, $scope) {
             $scope.show = function () {
-                $rsModal.open('modalTest.html');
+                $rsModal.open('modalTest.html', {
+                    test: "HELLO WORLD INIT"
+                });
             }
 
-            $templateCache.put('modalTest.html', "<div class='modal-content' style='padding: 25px'><h1>Modal Test</h1></div>");
+            $templateCache.put('modalTest.html', "<div class='modal-content' style='padding: 25px'><h1>Modal Test</h1><input type='text' ng-model='test'>{{test}}</div>");
 
         }
 

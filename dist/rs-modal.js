@@ -26,7 +26,7 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 		$(document).on('click.$rsModal.open', function(event) {
 		  if (!$(event.target).closest('.modal-body').length) {
 		    if(vm.isVisible) {
-		    	close();
+		    	$rootScope.$broadcast(MODAL_EVENTS.close);
 		    }
 		  }
 		});
@@ -34,6 +34,12 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 
 	function removeRsModalListener() {
 		$(document).off('click.$rsModal.open');
+	}
+
+	function clearScope() {
+		for (var prop in scopeObj) {
+			$scope[prop] = null;
+		}
 	}
 
 	$rootScope.$on(MODAL_EVENTS.open, function(e, templateUrl, scopeObj, callback) {
@@ -96,6 +102,7 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 		vm.modalFlash = '';
 
 		removeRsModalListener();
+		clearScope();
 	}
 
 
