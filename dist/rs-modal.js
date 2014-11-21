@@ -36,12 +36,6 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 		$(document).off('click.$rsModal.open');
 	}
 
-	function clearScope() {
-		for (var prop in scopeObj) {
-			$scope[prop] = null;
-		}
-	}
-
 	$rootScope.$on(MODAL_EVENTS.open, function(e, templateUrl, scopeObj, callback) {
 		vm.template = templateUrl;
 		assignScope(scopeObj);
@@ -102,7 +96,6 @@ function RsModalCtrl($scope,$rootScope,$timeout,MODAL_EVENTS){
 		vm.modalFlash = '';
 
 		removeRsModalListener();
-		clearScope();
 	}
 
 
