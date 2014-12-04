@@ -143,7 +143,7 @@ function $rsModal($rootScope,$templateCache,MODAL_EVENTS) {
 	}
 
 	function flash() {
-		var message = arguments[0] || "Please supply a message";
+		var message = arguments[0];
 		var type = arguments[1] || "alert-info";
 		$rootScope.$broadcast(MODAL_EVENTS.flash, message, type);
 	}
