@@ -118,6 +118,8 @@ function rsModalRun($templateCache) {
 }
 rsModalRun.$inject = ["$templateCache"];
 function $rsModal($rootScope,$templateCache,MODAL_EVENTS) {
+	var openIndex = 0;
+
 	return {
 		open: open,
 		close: close,
@@ -131,8 +133,10 @@ function $rsModal($rootScope,$templateCache,MODAL_EVENTS) {
 		var callback = arguments[2] || '';
 
 		if(typeof $templateCache.get(templateUrl) === 'undefined') {
-			$templateCache.put('$rsModal.html',templateUrl);
-			templateUrl = "$rsModal.html";
+			$templateCache.remove('$rsModal.html' + (openIndex - 1));
+			$templateCache.put('$rsModal.html' + openIndex,templateUrl);
+			templateUrl = "$rsModal.html" + openIndex;
+			openIndex++;
 		}
 
 		$rootScope.$broadcast(MODAL_EVENTS.open, templateUrl, scopeObjects, callback);
