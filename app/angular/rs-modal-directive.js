@@ -3,6 +3,7 @@ function rsModal() {
 		restrict: "E",
 		templateUrl: 'rs-modal-template.html',
 		controller: 'RsModalCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+        scope: {}
 	};
 }
